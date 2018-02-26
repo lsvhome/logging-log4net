@@ -21,7 +21,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net20;net35;net35-client;net40;net40-client;net45;netstandard1.3;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>net20;net35;net35-client;net40;net40-client;net45;net461;netstandard1.3;netstandard2.0</TargetFrameworks>
     <Copyright>Copyright 2004-2017 The Apache Software Foundation.</Copyright>
     <AssemblyTitle>Apache log4net for .NET Core</AssemblyTitle>
     <VersionPrefix>2.0.9</VersionPrefix>
@@ -71,6 +71,10 @@
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(TargetFramework)' == 'net45' ">
+    <DefineConstants>STRONG;TRACE;NET_2_0;NET_4_0;NET_4_5;HAS_READERWRITERLOCKSLIM</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net461' ">
     <DefineConstants>STRONG;TRACE;NET_2_0;NET_4_0;NET_4_5;HAS_READERWRITERLOCKSLIM</DefineConstants>
   </PropertyGroup>
 
