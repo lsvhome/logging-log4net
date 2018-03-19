@@ -34,6 +34,7 @@
     <AssemblyOriginatorKeyFile>../log4net.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <StyleCopEnabled>false</StyleCopEnabled>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' != 'netstandard1.3' And '$(TargetFramework)' != 'netstandard2.0' ">
