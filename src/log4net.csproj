@@ -21,8 +21,7 @@
 <Project Sdk="Microsoft.NET.Sdk" ToolsVersion="15.0">
 
   <PropertyGroup>
-    <TargetFrameworks Condition=" '$(OS)' != 'UNIX' ">net20;net35;net35-client;net40;net40-client;net45;net461;netstandard1.3;netstandard2.0</TargetFrameworks>
-    <TargetFrameworks Condition=" '$(OS)' == 'UNIX' ">netstandard2.0;net461</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
     <Copyright>Copyright 2004-2017 The Apache Software Foundation.</Copyright>
     <AssemblyTitle>Apache log4net for .NET Core</AssemblyTitle>
     <VersionPrefix>2.0.9</VersionPrefix>
@@ -37,12 +36,12 @@
     <StyleCopEnabled>false</StyleCopEnabled>
   </PropertyGroup>
 
-  <ItemGroup Condition=" '$(TargetFramework)' != 'netstandard1.3' And '$(TargetFramework)' != 'netstandard2.0' ">
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" Condition=" '$(TargetFramework)' != 'net20' " />
+    <Reference Include="System.Core" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Web" Condition=" '$(TargetFramework)' != 'net35-client' And '$(TargetFramework)' != 'net40-client' " />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
 
