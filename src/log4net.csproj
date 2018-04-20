@@ -87,7 +87,6 @@
     <Compile Remove="Appender\AdoNetAppender.cs;Appender\AspNetTraceAppender.cs;Appender\ColoredConsoleAppender.cs;Appender\EventLogAppender.cs;Appender\NetSendAppender.cs;Appender\RemotingAppender.cs;Appender\SmtpAppender.cs;Config\DOMConfigurator.cs;Config\DOMConfiguratorAttribute.cs;Config\Log4NetConfigurationSectionHandler.cs;Layout\Pattern\AspNetCachePatternConverter.cs;Layout\Pattern\AspNetContextPatternConverter.cs;Layout\Pattern\AspNetPatternConverter.cs;Layout\Pattern\AspNetRequestPatternConverter.cs;Layout\Pattern\AspNetSessionPatternConverter.cs;Layout\Pattern\StackTraceDetailPatternConverter.cs;Layout\Pattern\StackTracePatternConverter.cs;Plugin\RemoteLoggingServerPlugin.cs;Util\PatternStringConverters\AppSettingPatternConverter.cs;Util\PatternStringConverters\EnvironmentFolderPathPatternConverter.cs;Util\NativeError.cs;Util\WindowsSecurityContext.cs" />
     <PackageReference Include="System.AppContext" Version="4.3.0" />
     <PackageReference Include="System.Collections.NonGeneric" Version="4.3.0" />
-    <PackageReference Include="System.Console" Version="4.3.0" />
     <PackageReference Include="System.Diagnostics.Debug" Version="4.3.0" />
     <PackageReference Include="System.Diagnostics.Process" Version="4.3.0" />
     <PackageReference Include="System.Diagnostics.StackTrace" Version="4.3.0" />
@@ -99,24 +98,24 @@
     <PackageReference Include="System.Net.Requests" Version="4.3.0" />
     <PackageReference Include="System.Net.Sockets" Version="4.3.0" />
     <PackageReference Include="System.Reflection.Extensions" Version="4.3.0" />
-    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.3.0" />
     <PackageReference Include="System.Runtime.Extensions" Version="4.3.0" />
     <PackageReference Include="System.Runtime.InteropServices" Version="4.3.0" />
-    <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
     <PackageReference Include="System.Runtime.Serialization.Formatters" Version="4.3.0" />
     <PackageReference Include="System.Text.RegularExpressions" Version="4.3.0" />
     <PackageReference Include="System.Threading" Version="4.3.0" />
     <PackageReference Include="System.Threading.Thread" Version="4.3.0" />
     <PackageReference Include="System.Threading.Timer" Version="4.3.0" />
-    <PackageReference Include="System.Xml.ReaderWriter" Version="4.3.0" />
     <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
+    <PackageReference Include="System.Console" Version="4.3.1" />
+    <PackageReference Include="System.Reflection.TypeExtensions" Version="4.4.0" />
+    <PackageReference Include="System.Xml.ReaderWriter" Version="4.3.1" />
+    <PackageReference Include="System.Security.Principal.Windows" Version="4.4.1" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' ">
     <Compile Remove="Appender\EventLogAppender.cs;Appender\RemotingAppender.cs;**\AspNet*.cs;Util\WindowsSecurityContext.cs;Plugin\RemoteLoggingServerPlugin.cs" />
     <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.4.1" />
     <PackageReference Include="System.Runtime.InteropServices.RuntimeInformation" Version="4.3.0" />
-    <PackageReference Include="System.Security.Principal.Windows" Version="4.4.0" />
   </ItemGroup>
 
 </Project>
