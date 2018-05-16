@@ -999,7 +999,7 @@ namespace log4net.Util
 		{
 			try
 			{
-#if NETCF || NETSTANDARD1_3
+#if NETCF || NETSTANDARD1_3 || NETSTANDARD2_0
 				// Configuration APIs are not suported under the Compact Framework
 #elif NET_2_0
 				return ConfigurationManager.AppSettings[key];
