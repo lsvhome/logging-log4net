@@ -49,7 +49,7 @@ namespace log4net.Config
 	{
 		#region Public Instance Constructors
 
-#if !NETSTANDARD1_3 && !NETSTANDARD2_0 // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
+#if !NETSTANDARD1_3 // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
 		/// <summary>
 		/// Initializes a new instance of the <see cref="PluginAttribute" /> class
 		/// with the specified type.

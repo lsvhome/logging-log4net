@@ -73,7 +73,7 @@ namespace log4net
 
 		#region Type Specific Manager Methods
 
-#if !NETSTANDARD1_3 && !NETSTANDARD2_0  // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
+#if !NETSTANDARD1_3 // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
 		/// <overloads>Returns the named logger if it exists.</overloads>
 		/// <summary>
 		/// Returns the named logger if it exists.
@@ -758,7 +758,7 @@ namespace log4net
 			/// <returns><c>True</c> if all logging events were flushed successfully, else <c>false</c>.</returns>
 			public static bool Flush(int millisecondsTimeout)
 			{
-#if !NETSTANDARD1_3 && !NETSTANDARD2_0  // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
+#if !NETSTANDARD1_3 // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
 				Appender.IFlushable flushableRepository = LoggerManager.GetRepository(Assembly.GetCallingAssembly()) as Appender.IFlushable;
 				if (flushableRepository == null)
 				{

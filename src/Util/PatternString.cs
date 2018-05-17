@@ -300,7 +300,7 @@ namespace log4net.Util
 			s_globalRulesRegistry.Add("date", typeof(DatePatternConverter));
 #if !NETCF
 			s_globalRulesRegistry.Add("env", typeof(EnvironmentPatternConverter));
-#if !NETSTANDARD1_3 && !NETSTANDARD2_0  // EnvironmentFolderPathPatternConverter not yet supported
+#if !NETSTANDARD1_3 // EnvironmentFolderPathPatternConverter not yet supported
 			s_globalRulesRegistry.Add("envFolderPath", typeof(EnvironmentFolderPathPatternConverter));
 #endif
 #endif
