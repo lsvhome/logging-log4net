@@ -651,7 +651,7 @@ namespace log4net.Config
 #endif
 						try
 						{
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 							WebResponse response = configRequest.GetResponseAsync().GetAwaiter().GetResult();
 #else
 							WebResponse response = configRequest.GetResponse();

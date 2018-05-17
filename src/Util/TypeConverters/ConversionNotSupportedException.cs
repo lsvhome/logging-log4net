@@ -39,7 +39,7 @@ namespace log4net.Util.TypeConverters
 #if !NETCF
 	[Serializable]
 #endif
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 	public class ConversionNotSupportedException : Exception
 #else
 	public class ConversionNotSupportedException : ApplicationException

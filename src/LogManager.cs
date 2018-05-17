@@ -254,7 +254,7 @@ namespace log4net
 		/// <returns>The logger with the name specified.</returns>
 		public static ILog GetLogger(Type type)
 		{
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 			return GetLogger(type.GetTypeInfo().Assembly, type.FullName);
 #else
 			return GetLogger(Assembly.GetCallingAssembly(), type.FullName);
@@ -317,7 +317,7 @@ namespace log4net
 			LoggerManager.Shutdown();
 		}
 
-#if !NETSTANDARD1_3
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0
 		/// <overloads>Shutdown a logger repository.</overloads>
 		/// <summary>
 		/// Shuts down the default repository.
@@ -395,7 +395,7 @@ namespace log4net
 			LoggerManager.ShutdownRepository(repositoryAssembly);
 		}
 
-#if !NETSTANDARD1_3
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0
 		/// <overloads>Reset the configuration of a repository</overloads>
 		/// <summary>
 		/// Resets all values contained in this repository instance to their defaults.
@@ -454,7 +454,7 @@ namespace log4net
 			LoggerManager.ResetConfiguration(repositoryAssembly);
 		}
 
-#if !NETSTANDARD1_3
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0
 		/// <overloads>Get the logger repository.</overloads>
 		/// <summary>
 		/// Returns the default <see cref="ILoggerRepository"/> instance.
@@ -507,7 +507,7 @@ namespace log4net
 			return GetRepository(repositoryAssembly);
 		}
 
-#if !NETSTANDARD1_3
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0
 		/// <overloads>Get a logger repository.</overloads>
 		/// <summary>
 		/// Returns the default <see cref="ILoggerRepository"/> instance.
@@ -557,7 +557,7 @@ namespace log4net
 			return LoggerManager.GetRepository(repositoryAssembly);
 		}
 
-#if !NETSTANDARD1_3
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0
 		/// <overloads>Create a domain</overloads>
 		/// <summary>
 		/// Creates a repository with the specified repository type.

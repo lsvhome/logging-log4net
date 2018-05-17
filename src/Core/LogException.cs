@@ -39,7 +39,7 @@ namespace log4net.Core
 #if !NETCF
 	[Serializable]
 #endif
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 	public class LogException : Exception
 #else
 	public class LogException : ApplicationException

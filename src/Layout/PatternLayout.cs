@@ -20,7 +20,7 @@
 using System;
 using System.Collections;
 using System.IO;
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 using System.Reflection;
 #endif
 

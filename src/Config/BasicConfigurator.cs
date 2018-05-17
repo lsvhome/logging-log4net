@@ -82,7 +82,7 @@ namespace log4net.Config
 
 		#region Public Static Methods
 
-#if !NETSTANDARD1_3
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0
 		/// <summary>
 		/// Initializes the log4net system with a default configuration.
 		/// </summary>

@@ -18,7 +18,7 @@
 #endregion
 
 using System;
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 using System.Globalization;
 #else
 using System.Configuration;
@@ -291,7 +291,7 @@ namespace log4net.Util
 					{
 						try
 						{
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 							s_hostName = Environment.GetEnvironmentVariable("COMPUTERNAME");
 #elif (!SSCLI && !NETCF)
 							s_hostName = Environment.MachineName;
@@ -557,7 +557,7 @@ namespace log4net.Util
 		public static string AssemblyQualifiedName(Type type)
 		{
 			return type.FullName + ", "
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 				+ type.GetTypeInfo().Assembly.FullName;
 #else
 				+ type.Assembly.FullName;
@@ -613,7 +613,7 @@ namespace log4net.Util
 		/// </remarks>
 		public static string AssemblyFileName(Assembly myAssembly)
 		{
-#if NETCF || NETSTANDARD1_3
+#if NETCF || NETSTANDARD1_3 || NETSTANDARD2_0
 			// This is not very good because it assumes that only
 			// the entry assembly can be an EXE. In fact multiple
 			// EXEs can be loaded in to a process.
@@ -658,14 +658,14 @@ namespace log4net.Util
 		/// </remarks>
 		public static Type GetTypeFromString(Type relativeType, string typeName, bool throwOnError, bool ignoreCase)
 		{
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 			return GetTypeFromString(relativeType.GetTypeInfo().Assembly, typeName, throwOnError, ignoreCase);
 #else
 			return GetTypeFromString(relativeType.Assembly, typeName, throwOnError, ignoreCase);
 #endif
 		}
 
-#if !NETSTANDARD1_3
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0
 		/// <summary>
 		/// Loads the type specified in the type string.
 		/// </summary>
@@ -717,7 +717,7 @@ namespace log4net.Util
 			if(typeName.IndexOf(',') == -1)
 			{
 				//LogLog.Debug(declaringType, "SystemInfo: Loading type ["+typeName+"] from assembly ["+relativeAssembly.FullName+"]");
-#if NETSTANDARD1_3
+#if NETSTANDARD1_3 || NETSTANDARD2_0
 				return relativeAssembly.GetType(typeName, throwOnError, ignoreCase);
 #elif NETCF
 				return relativeAssembly.GetType(typeName, throwOnError);
