@@ -161,7 +161,7 @@ namespace log4net.Config
 #endif
 		}
 
-#if !NETSTANDARD1_3 // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0  // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
 #if !NETCF
 		/// <summary>
 		/// Automatically configures the log4net system based on the
@@ -791,7 +791,7 @@ namespace log4net.Config
 		#region ConfigureAndWatch static methods
 
 #if (!NETCF && !SSCLI)
-#if !NETSTANDARD1_3 // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
+#if !NETSTANDARD1_3 && !NETSTANDARD2_0  // Excluded because GetCallingAssembly() is not available in CoreFX (https://github.com/dotnet/corefx/issues/2221).
 		/// <summary>
 		/// Configures log4net using the file specified, monitors the file for changes
 		/// and reloads the configuration if a change is detected.
