@@ -18,7 +18,7 @@
 #endregion
 
 using System;
-#if NETSTANDARD1_3 || NETSTANDARD2_0
+#if NETSTANDARD1_3
 using System.Reflection;
 #endif
 using System.Text;

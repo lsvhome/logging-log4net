@@ -22,7 +22,7 @@ using System.Collections;
 using System.IO;
 #if (!NETCF)
 using System.Runtime.Serialization;
-#if !NETSTANDARD1_3 && !NETSTANDARD2_0
+#if !NETSTANDARD1_3
 using System.Security.Principal;
 #endif
 #endif

@@ -162,7 +162,7 @@ namespace log4net.Appender
 
 			#region Override Implementation of Stream
 
-#if NETSTANDARD1_3 || NETSTANDARD2_0
+#if NETSTANDARD1_3
 			protected override void Dispose(bool disposing)
 			{
 				m_lockingModel.CloseFile();
@@ -247,7 +247,7 @@ namespace log4net.Appender
 			}
 			void IDisposable.Dispose()
 			{
-#if NETSTANDARD1_3 || NETSTANDARD2_0
+#if NETSTANDARD1_3
 				Dispose(true);
 #else
 				Close();

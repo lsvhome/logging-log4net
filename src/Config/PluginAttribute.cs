@@ -142,7 +142,7 @@ namespace log4net.Config
 		public IPlugin CreatePlugin()
 		{
 			Type pluginType = m_type;
-#if !NETSTANDARD1_3 && !NETSTANDARD2_0
+#if !NETSTANDARD1_3
 			if (m_type == null)
 			{
 				// Get the plugin object type from the string type name

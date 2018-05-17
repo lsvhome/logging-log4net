@@ -73,7 +73,7 @@ namespace log4net.Repository.Hierarchy
 		/// </remarks>
 		protected Logger(string name)
 		{
-#if NETCF || NETSTANDARD1_3 || NETSTANDARD2_0
+#if NETCF || NETSTANDARD1_3
 			// NETCF: String.Intern causes Native Exception
 			m_name = name;
 #else

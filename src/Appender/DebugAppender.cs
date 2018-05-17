@@ -119,7 +119,7 @@ namespace log4net.Appender
 
 		#endregion Public Instance Properties
 
-#if !NETSTANDARD1_3 && !NETSTANDARD2_0
+#if !NETSTANDARD1_3
 			/// <summary>
 			/// Flushes any buffered log data.
 			/// </summary>
@@ -171,7 +171,7 @@ namespace log4net.Appender
 					System.Diagnostics.Debug.Write(RenderLoggingEvent(loggingEvent), category);
 				}
 			}
-#if !NETSTANDARD1_3 && !NETSTANDARD2_0
+#if !NETSTANDARD1_3
 			//
 			// Flush the Debug system if needed
 			//

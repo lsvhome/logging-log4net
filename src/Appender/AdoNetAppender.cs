@@ -703,7 +703,7 @@ namespace log4net.Appender
 		{
 			try
 			{
-				return SystemInfo.GetTypeFromString(System.Reflection.Assembly.GetExecutingAssembly(), ConnectionType, true, false);
+				return SystemInfo.GetTypeFromString(ConnectionType, true, false);
 			}
 			catch (Exception ex)
 			{

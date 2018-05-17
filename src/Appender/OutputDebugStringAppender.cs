@@ -82,7 +82,7 @@ namespace log4net.Appender
 #endif
 		override protected void Append(LoggingEvent loggingEvent)
 		{
-#if NETSTANDARD1_3 || NETSTANDARD2_0
+#if NETSTANDARD1_3
 			if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
 			{
 				throw new System.PlatformNotSupportedException("OutputDebugString is only available on Windows");

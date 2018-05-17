@@ -19,7 +19,7 @@
 
 using System;
 using System.Collections;
-#if !NETSTANDARD1_3 && !NETSTANDARD2_0
+#if !NETSTANDARD1_3
 using System.Configuration;
 #endif
 using System.Diagnostics;
