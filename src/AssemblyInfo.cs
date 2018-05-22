@@ -36,7 +36,7 @@ using System.Runtime.CompilerServices;
 //
 // If log4net is strongly named it still allows partially trusted callers
 //
-[assembly: System.Security.AllowPartiallyTrustedCallers]
+[assembly: System.Security.AllowPartiallyTrustedCallers(PartialTrustVisibilityLevel = System.Security.PartialTrustVisibilityLevel.NotVisibleByDefault)]
 #endif
 
 #if (NET_4_0)
