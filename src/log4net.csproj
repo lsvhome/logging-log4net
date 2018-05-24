@@ -34,6 +34,7 @@
     <SignAssembly>true</SignAssembly>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <StyleCopEnabled>false</StyleCopEnabled>
+    <ReleaseVersion>0.0.2</ReleaseVersion>
   </PropertyGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
