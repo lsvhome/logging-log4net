@@ -241,7 +241,7 @@ namespace log4net.Appender
 		/// </summary>
 		~RollingFileAppender()
 		{
-#if !NETCF
+#if !NETCF && !MUTEX_NOTSUPPORTED
 			if (m_mutexForRolling != null)
 			{
 #if NET_4_0 || MONO_4_0 || NETSTANDARD1_3
@@ -612,7 +612,7 @@ namespace log4net.Appender
 		virtual protected void AdjustFileBeforeAppend()
 		{
 			// reuse the file appenders locking model to lock the rolling
-#if !NETCF
+#if !NETCF && !MUTEX_NOTSUPPORTED
 			try
 			{
 				// if rolling should be locked, acquire the lock
@@ -640,7 +640,7 @@ namespace log4net.Appender
 						RollOverSize();
 					}
 				}
-#if !NETCF
+#if !NETCF && !MUTEX_NOTSUPPORTED
 			}
 			finally
 			{
@@ -1146,9 +1146,16 @@ namespace log4net.Appender
 				m_baseFileName = base.File;
 			}
 
-#if !NETCF
+#if !NETCF && !MUTEX_NOTSUPPORTED
 			// initialize the mutex that is used to lock rolling
-			m_mutexForRolling = new Mutex(false, m_baseFileName.Replace("\\", "_").Replace(":", "_").Replace("/", "_"));
+			if (Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application.RuntimeFramework.Identifier != "Xamarin.Mac")
+			{
+				string mutexFriendlyFilename = m_baseFileName
+					.Replace("\\", "_")
+					.Replace(":", "_")
+					.Replace("/", "_");
+				m_mutexForRolling = new Mutex(false, mutexFriendlyFilename);
+			}
 #endif
 
 			if (m_rollDate && File != null && m_scheduledFilename == null)

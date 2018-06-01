@@ -714,7 +714,7 @@ namespace log4net.Appender
 			}
 		}
 
-#if !NETCF
+#if !NETCF && !MUTEX_NOTSUPPORTED
 		/// <summary>
 		/// Provides cross-process file locking.
 		/// </summary>
@@ -841,12 +841,15 @@ namespace log4net.Appender
 			{
 				if (m_mutex == null)
 				{
-					string mutexFriendlyFilename = CurrentAppender.File
+					if (Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application.RuntimeFramework.Identifier != "Xamarin.Mac")
+					{
+						string mutexFriendlyFilename = CurrentAppender.File
 							.Replace("\\", "_")
 							.Replace(":", "_")
 							.Replace("/", "_");
 
-					m_mutex = new Mutex(false, mutexFriendlyFilename);
+						m_mutex = new Mutex(false, mutexFriendlyFilename);
+					}
 				}
 				else
 				{
