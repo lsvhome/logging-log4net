@@ -839,6 +839,7 @@ namespace log4net.Appender
 			/// </summary>
 			public override void ActivateOptions()
 			{
+#if !NETCF && !MUTEX_NOTSUPPORTED
 				if (m_mutex == null)
 				{
 					if (Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application.RuntimeFramework.Identifier != "Xamarin.Mac")
@@ -848,13 +849,20 @@ namespace log4net.Appender
 							.Replace(":", "_")
 							.Replace("/", "_");
 
-						m_mutex = new Mutex(false, mutexFriendlyFilename);
+						try
+						{
+							m_mutex = new Mutex(false, mutexFriendlyFilename);
+						}
+						catch (NotSupportedException)
+						{
+						}
+					}
+					else
+					{
+						CurrentAppender.ErrorHandler.Error("Programming error, mutex already initialized!");
 					}
 				}
-				else
-				{
-					CurrentAppender.ErrorHandler.Error("Programming error, mutex already initialized!");
-				}
+#endif
 			}
 
 			/// <summary>

@@ -1147,14 +1147,20 @@ namespace log4net.Appender
 			}
 
 #if !NETCF && !MUTEX_NOTSUPPORTED
-			// initialize the mutex that is used to lock rolling
-			if (Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application.RuntimeFramework.Identifier != "Xamarin.Mac")
+			try
 			{
-				string mutexFriendlyFilename = m_baseFileName
-					.Replace("\\", "_")
-					.Replace(":", "_")
-					.Replace("/", "_");
-				m_mutexForRolling = new Mutex(false, mutexFriendlyFilename);
+				// initialize the mutex that is used to lock rolling
+				if (Microsoft.Extensions.PlatformAbstractions.PlatformServices.Default.Application.RuntimeFramework.Identifier != "Xamarin.Mac")
+				{
+					string mutexFriendlyFilename = m_baseFileName
+						.Replace("\\", "_")
+						.Replace(":", "_")
+						.Replace("/", "_");
+					m_mutexForRolling = new Mutex(false, mutexFriendlyFilename);
+				}
+			}
+			catch (NotSupportedException)
+			{
 			}
 #endif
 
