@@ -30,10 +30,10 @@
     <AssemblyName>log4net</AssemblyName>
     <PackageId>log4net</PackageId>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
-    <PublicSign>true</PublicSign>
+    <PublicSign>false</PublicSign>
     <AssemblyOriginatorKeyFile>../log4net.snk</AssemblyOriginatorKeyFile>
     <SignAssembly>true</SignAssembly>
-    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <StyleCopEnabled>false</StyleCopEnabled>
   </PropertyGroup>
 
